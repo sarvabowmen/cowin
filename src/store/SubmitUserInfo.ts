@@ -25,8 +25,8 @@ export interface Districts {
 
 export interface District {
 
-    district_id: number;
-    district_name: string;
+    districtId: number;
+    districtName: string;
 }
 
 // -----------------
@@ -165,7 +165,7 @@ export const reducer: Reducer<UserInfoUiState> = (state: UserInfoUiState | undef
                     success: false,
             };
         case 'GET_DISTRICTS_SUCCESS':
-            action.districts.districts.push({ district_id: 0, district_name: "Select a District" });
+            action.districts.districts.push({ districtId: 0, districtName: "Select a District" });
             return {
                 email: state.email,
                 mobile: state.mobile,

@@ -119,7 +119,7 @@ state: SubmitUserInfoState = {
             <div>
                 <select name="selectedDistrict" value={this.state.selectedDistrict} onChange={this.handleInputChange}>
                     {this.props.districts && this.props.districts.districts.map((e: any, key: any) => {
-                        return <option key={key} value={e.district_id}>{e.district_name}</option>;
+                        return <option key={key} value={e.districtId}>{e.districtName}</option>;
                     })}
                 </select>
             </div>
