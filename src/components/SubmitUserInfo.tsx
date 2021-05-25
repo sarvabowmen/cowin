@@ -32,7 +32,7 @@ state: SubmitUserInfoState = {
   public render() {
     return (
       <React.Fragment>
-            <h1 id="tabelLabel">Enter User information for Cowin vaccination notification</h1>
+            <h1 id="tabelLabel" className="title">Enter User information for Cowin vaccination notification</h1>
             { !this.state.showForm ?
                 <button onClick={this.buttonClick}>Enter Your Info to Subscribe for Vaccination Notification</button> : null}
         {this.state.showForm ? this.renderSubmitUserInfoForm() : null}
@@ -77,31 +77,30 @@ state: SubmitUserInfoState = {
       const { email, mobile, ageRange } = this.state;
     return (
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="form-group">
             <label>
-                Email:
-                <input name="email" type="text" value={email} onChange={this.handleInputChange} />
+           <span>Email:</span>  <input className="form-field"  name="email" type="text" value={email} onChange={this.handleInputChange} />            
             </label>
           </div>
-          <div>
+          <div className="form-group">
           <label>
-              Mobile:
-              <input name="mobile" type="number" value={mobile} onChange={this.handleInputChange} />
+          <span>Mobile:</span>
+              <input className="form-field" name="mobile" type="number" value={mobile} onChange={this.handleInputChange} />
           </label>
         </div>
-        <div>
+        <div  className="form-group">
             <label>
-            LessThan45:
-            <input
+            <span>LessThan45:</span>
+            <input 
                 name="ageRange"
-                type="checkbox"
+                type="checkbox" style={{ margin: "12px" }}
                         checked={ageRange === 0 ? true : false}
                         value={0}
                 onChange={this.handleInputChange} />
             </label>
             <label>
-            GreaterThan45:
-            <input
+            <span>GreaterThan45:</span>
+            <input style={{ margin: "12px" }}
                 name="ageRange"
                 type="checkbox" value={1}
                 checked={ageRange === 1 ? true: false }
@@ -109,24 +108,23 @@ state: SubmitUserInfoState = {
 
             </label>
         </div>
-            <div>
-                <select name="selectedState" value={this.state.selectedState} onChange={ this.handleInputChange }>
+            <div className="form-group">
+                <select className="form-field" name="selectedState" value={this.state.selectedState} onChange={ this.handleInputChange }>
                     {this.states.map((e:any, key: any) => {
                         return <option key={key} value={e.state_id}>{e.state_name}</option>;
                     })}
                 </select>
             </div>
-            <div>
-                <select name="selectedDistrict" value={this.state.selectedDistrict} onChange={this.handleInputChange}>
+            <div  className="form-group">
+                <select className="form-field" name="selectedDistrict" value={this.state.selectedDistrict} onChange={this.handleInputChange}>
                     {this.props.districts && this.props.districts.districts.map((e: any, key: any) => {
                         return <option key={key} value={e.districtId}>{e.districtName}</option>;
                     })}
                 </select>
             </div>
             <div>
-
-        <input type="submit" value="Submit" />
-        </div>
+                 <input type="submit" value="Submit" />
+            </div>
             { this.props.isError ?
                 <div style={{ color: "red" }}>
                     <label>
