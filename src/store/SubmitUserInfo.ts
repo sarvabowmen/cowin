@@ -68,11 +68,11 @@ export const actionCreators = {
             const appState = getState();
             const requestOptions = {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'x-functions-key': 'tJjo9yQTYF8dafvX8LgTgQGgP6ZiN2Thq07zDTktX8KlTlvkGAxARw=='},
                 body: JSON.stringify(userInfo)
             };
             if (appState) {
-                fetch(`/api/Availablity/submitUserInfo`, requestOptions)
+                fetch(`https://cowinapinew.azurewebsites.net/api/CowinApi/`, requestOptions)
                     .then(response => {
                         if (!response.ok) {
                             throw Error(response.statusText);
@@ -96,10 +96,10 @@ export const actionCreators = {
         const appState = getState();
         const requestOptions = {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
+            headers: { 'Content-Type': 'application/json', 'x-functions-key': 'tJjo9yQTYF8dafvX8LgTgQGgP6ZiN2Thq07zDTktX8KlTlvkGAxARw==' }
         };
         if (appState) {
-            fetch('/api/Availablity/district/'+stateId, requestOptions)
+            fetch('https://cowinapinew.azurewebsites.net/api/DistrictsApi?state_id='+stateId, requestOptions)
                 .then(response => {
                     if (!response.ok) {
                         throw Error(response.statusText);
