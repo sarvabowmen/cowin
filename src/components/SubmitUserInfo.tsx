@@ -61,11 +61,11 @@ state: SubmitUserInfoState = {
       value = target.value;
     }
     const name = target.name;
-     if (name == "selectedState") {
+     if (name === "selectedState") {
          this.props.fetchDistricts(value);
          value = parseInt(value);
      }
-     if (name == "selectedDistrict") {
+     if (name === "selectedDistrict") {
          value = parseInt(value);
      }
     this.setState<any>({
@@ -95,7 +95,7 @@ state: SubmitUserInfoState = {
             <input
                 name="ageRange"
                 type="checkbox"
-                        checked={ageRange == 0 ? true : false}
+                        checked={ageRange === 0 ? true : false}
                         value={0}
                 onChange={this.handleInputChange} />
             </label>
@@ -104,7 +104,7 @@ state: SubmitUserInfoState = {
             <input
                 name="ageRange"
                 type="checkbox" value={1}
-                checked={ageRange == 1 ? true: false }
+                checked={ageRange === 1 ? true: false }
                 onChange={this.handleInputChange} />
 
             </label>
